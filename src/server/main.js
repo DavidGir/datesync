@@ -11,7 +11,7 @@ async function createServer() {
   app.use(express.json());
   
   // API routes will be used below:
-  app.use('./routes/api', apiRoutes);
+  app.use('/api', apiRoutes);
 
   // Only use Vite in development:
   if (process.env.NODE_ENV !== 'production') {
