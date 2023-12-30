@@ -5,7 +5,7 @@ const LocalApi = () => {
   const [text, setText] = useState([]);
   const [error, setError] = useState(null);
 
-  const url = "http://localhost:3000/local";
+  const url = "http://localhost:3000/api/local";
 
   const fetchData = () => {
     axios.get(url).then((res) => {
