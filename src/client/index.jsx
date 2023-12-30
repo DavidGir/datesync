@@ -4,13 +4,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { BrowserRouter } from 'react-router-dom';
-import { Auth0Provider } from '@auth0/auth0-react';
+// import { Auth0Provider } from '@auth0/auth0-react';
 
 import App from './App';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Auth0Provider
+    {/* <Auth0Provider
     domain="YOUR_AUTH0_DOMAIN"
     clientId="YOUR_AUTH0_CLIENT_ID"
     authorizationParams={{
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     }}
     >
 
-    </Auth0Provider>
+    </Auth0Provider> */}
       <BrowserRouter>
         <App />
       </BrowserRouter>
