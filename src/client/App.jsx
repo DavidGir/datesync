@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate} from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import "./App.css";
 
@@ -8,9 +8,10 @@ import LandingPage from "./routes/LandingPage";
 import LoginButton from './components/auth/LoginButton';
 import LogoutButton from './components/auth/LogoutButton';
 import Profile from './components/auth/Profile';
+import TestAuthToken from './components/auth/TestAuthToken';
 
 function App() {
-  const {isLoading, error } = useAuth0();
+  const {isLoading, error, isAuthenticated } = useAuth0();
 
   return (
     <main className="column">
@@ -25,10 +26,15 @@ function App() {
           <Profile />
         </>
       )}
+      <>
+        <TestAuthToken />
+      </>
     <Routes>
+      {/* Public Routes */}
       <Route path='/' element={<LandingPage />} />
       <Route path='/create-date' element={<CreateDate />} />
-      <Route path= '/dashboard' element={<Dashboard />} />
+      {/* Protected Routes */}
+      <Route path= '/dashboard' element={isAuthenticated ? <Dashboard /> : <Navigate to='/' />} />
     </Routes>
     </main>
   )
