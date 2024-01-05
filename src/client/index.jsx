@@ -17,6 +17,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       authorizationParams={{
         redirect_uri: window.location.origin
       }}
+      audience="https://dateplannerapi.com"
+      // scope="openid profile email"
     >
       <BrowserRouter>
         <App />
