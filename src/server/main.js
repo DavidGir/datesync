@@ -1,17 +1,28 @@
 import express from "express";
 import { createServer as createViteServer } from 'vite';
-import apiRoutes from './routes/api.js'; 
+import apiRoutes from './routes/external-api.js'; 
+import protectedRoutes from './auth/auth-protected-routes.js';
+import publicRoutes from './routes/public-routes.js';
+import checkJwt from "./auth0-middleware.js";
 import 'dotenv/config';
 
 async function createServer() {
   
   const app = express();
-  
+
   // This is so we can parse JSON payloads:
   app.use(express.json());
   
-  // API routes will be used below:
+  // External API routes:
   app.use('/api', apiRoutes);
+  // Protected routes:
+  app.use('/protected', protectedRoutes);
+  // Public routes (no authentication required):
+  app.use('/public', publicRoutes);
+
+  app.get('/test', checkJwt, (req, res) => {
+    res.send('Token is valid!');
+  });
 
   // Only use Vite in development:
   if (process.env.NODE_ENV !== 'production') {
