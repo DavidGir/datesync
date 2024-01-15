@@ -34,6 +34,10 @@
 
         .feature-desktop {
           display: none;
+
+          @media (min-width: 768px) { 
+            display: block; 
+          }
         }
         img {
           max-width: 90%;
@@ -84,6 +88,10 @@
 
           .feature-mobile {
             display: none;
+
+            @media (max-width: 767px) { 
+              display: block; 
+            }
           }
           .feature-desktop {
             display: contents;

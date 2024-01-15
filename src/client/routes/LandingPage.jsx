@@ -2,7 +2,7 @@ import FeatureDates from "../components/FeatureDates";
 import "../styles/LandingPage.scss";
 import CreateAccountButton from "../components/auth/buttons/create-account-button";
 import TryWithoutAccountButton from "../components/auth/buttons/try-without-account-button";
-import mockFeatureDates from "../components/mockFeatureDates";
+import FeatureDatesAutoPlayCarousel from "../components/FeatureDatesAutoPlayCarousel";
 
 const LandingPage = () => {
 
@@ -23,13 +23,7 @@ const LandingPage = () => {
           <div className="feature-title">
             <h2>Feature Dates</h2>
           </div>
-          <div className="cards">
-            {mockFeatureDates.map((date, index) => (
-              <div key={index}>
-                <FeatureDates date={date} />
-              </div>
-            ))}
-          </div>
+          <FeatureDatesAutoPlayCarousel />
         </div>
       </main>
     </div>

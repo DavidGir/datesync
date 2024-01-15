@@ -38,7 +38,9 @@ export default function FeatureDates({ date }) {
             <Typography className="date-title">{date.title}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{date.description}</Typography>
+            <Typography>Type: {date.type}</Typography>
+            <Typography>Description: {date.description}</Typography>
+            <Typography>Website: {date.website}</Typography>
           </AccordionDetails>
         </Accordion>
       </CardActionArea>
